@@ -63,3 +63,4 @@ var isHappy = function(n)
 };
 
 console.log(isHappy(7)); //true
+console.log(isHappy(4)); //false
