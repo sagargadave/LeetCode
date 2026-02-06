@@ -34,15 +34,22 @@ Solution :
 class Solution {
     public int minOperations(int[] nums) {
 
-        int ope = 0, n = nums.length, no = 0;
+        int operationCount = 0;
 
-        for (int i = 0; i < n; i++) {
+        // Represents current expected value after flips
+        // (0 = no flip yet, 1 = flipped odd times)
+        int currentFlipState = 0;
 
-            if (nums[i] == no) {
-                no = 1 - no;
-                ope++;
+        for (int num : nums) {
+
+            // If current element equals the flip state,
+            // we must flip from here
+            if (num == currentFlipState) {
+                currentFlipState = 1 - currentFlipState; // 0
+                operationCount++;//2
             }
         }
-        return ope;
+
+        return operationCount;
     }
-}
+}               
