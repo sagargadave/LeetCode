@@ -22,6 +22,8 @@ Constraints:
 Solution :
 */
 
+// Brute-Force(not Optimal)
+
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
 
@@ -46,5 +48,32 @@ class Solution {
         ArrayList<Integer> list = new ArrayList<>(s1);
 
         return list;
+    }
+}
+
+//Better Solution (Not optimal)
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        List<Integer> l1 = new ArrayList<>();
+
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+
+            mp.put(nums[i], mp.getOrDefault(nums[i], 0) + 1);
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            if ((mp.getOrDefault(nums[i], -1)) > (n / 3)) {
+                l1.add(nums[i]);
+                mp.remove(nums[i]);
+            }
+        }
+
+        return l1;
     }
 }
