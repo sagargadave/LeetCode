@@ -26,3 +26,26 @@ s1 and s2 consist only of lowercase English letters.
 
 Solution :
 */
+class Solution {
+    public boolean checkStrings(String s1, String s2) {
+        long a = 0, b = 0, c = 0, d = 0;
+
+        for (int i = 0; i < s1.length(); i++) {
+            int x = s1.charAt(i);
+            int y = s2.charAt(i);
+
+            int p = x ^ y;
+            int q = x * x - y * y;
+
+            if (i % 2 == 1) {
+                b ^= p;
+                d += q;
+            } else {
+                a ^= p;
+                c += q;
+            }
+        }
+
+        return (a | b | c | d) == 0;
+    }
+}
