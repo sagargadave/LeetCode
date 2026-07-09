@@ -3,9 +3,9 @@ class Solution {
 
         List<Integer> list = new ArrayList<>();
 
-        int n = nums.length, sum = 0, sum1 = 0;
+        int n = nums.length;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {            
             int no = nums[Math.abs(nums[i]) - 1];
 
             if (no > 0) {
