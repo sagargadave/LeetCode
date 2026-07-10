@@ -8,6 +8,6 @@ class Solution {
             sum2 += i+1;
         }
 
-        return Math.abs(sum1 - sum2);
+        return sum2 - sum1;
     }
 }
