@@ -7,7 +7,6 @@ class Solution {
         }
 
         HashMap<Character, String> charToWord = new HashMap<>();
-        HashSet<String> seenWords = new HashSet<>();
 
         for (int i = 0; i < pattern.length(); i++) {
             char c = pattern.charAt(i);
@@ -22,10 +21,9 @@ class Solution {
                     return false;
                 }
                 charToWord.put(c, w);
-                seenWords.add(w);
             }
         }
-        
+
         return true;
     }
 }
