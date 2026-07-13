@@ -21,10 +21,11 @@ class Solution {
               right < s.length() &&
               s.charAt(left) == s.charAt(right)) {
 
-            if(right - left + 1 > maxLength) {
+            if((right - left) + 1 > maxLength) {
 
                 maxLength = right - left + 1;
                 start = left;
+
             }
 
             left--;
