@@ -6,9 +6,8 @@ class Solution {
         for (int i = 0; i < n; i++) {
             if (prices[i] < stock) {
                 stock = prices[i];
-            } else {
-                profit = Math.max(prices[i] - stock, profit);
-            }
+            } 
+            profit = Math.max(prices[i] - stock, profit);
         }
 
         return profit;
