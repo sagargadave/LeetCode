@@ -7,16 +7,16 @@ class Solution {
             return false;
         }
 
-        HashMap<Character, Integer> mp = new HashMap<>();
+        int arr[] = new int[26];
 
         for (int i = 0; i < slen; i++) {
-            mp.put(s.charAt(i), mp.getOrDefault(s.charAt(i), 0) + 1);
+            arr[s.charAt(i) - 'a']++;
         }
 
         for (int i = 0; i < tlen; i++) {
-            mp.put(t.charAt(i), mp.getOrDefault(t.charAt(i), 0) - 1);
+            arr[t.charAt(i) - 'a']--;
 
-            if (mp.get(t.charAt(i)) < 0) {
+            if (arr[t.charAt(i) - 'a'] < 0) {
                 return false;
             }
         }
