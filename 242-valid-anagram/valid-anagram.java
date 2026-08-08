@@ -7,19 +7,18 @@ class Solution {
             return false;
         }
 
-        int arr[] = new int[26];
+        HashMap<Character, Integer> mp = new HashMap<>();
 
         for (int i = 0; i < slen; i++) {
-            arr[s.charAt(i) - 'a'] += 1;
+            mp.put(s.charAt(i), mp.getOrDefault(s.charAt(i), 0) + 1);
         }
 
         for (int i = 0; i < tlen; i++) {
+            mp.put(t.charAt(i), mp.getOrDefault(t.charAt(i), 0) - 1);
 
-            if (arr[t.charAt(i) - 'a'] == 0) {
+            if (mp.get(t.charAt(i)) < 0) {
                 return false;
             }
-
-            arr[t.charAt(i) - 'a'] -= 1;
         }
 
         return true;
