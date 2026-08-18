@@ -1,21 +1,24 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
 
+        int slen = s.length();
+
         HashMap<Character, Character> mp = new HashMap<>();
 
-        for (int i = 0; i < s.length(); i++) {
-            char sch = s.charAt(i);
-            char tch = t.charAt(i);
+        for (int i = 0; i < slen; i++) {
 
-            if (mp.containsKey(sch)) {
-                if (mp.get(sch) != tch) {
+            char schr = s.charAt(i);
+            char tchr = t.charAt(i);
+
+            if (mp.containsKey(schr)) {
+                if (mp.get(schr) != tchr) {
                     return false;
                 }
-            }else if (mp.containsValue(tch)) {
+            } else if (mp.containsValue(tchr)) {
                 return false;
             }
 
-            mp.put(sch, tch);
+            mp.put(schr, tchr);
         }
 
         return true;
