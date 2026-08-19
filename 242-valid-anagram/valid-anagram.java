@@ -1,26 +1,25 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
 
-        int slen = s.length(), tlen = t.length();
-
-        if (slen != tlen) {
+        if (s.length() != t.length()) {
             return false;
         }
 
-        int arr[] = new int[26];
+        int count[] = new int[26];
 
-        for (int i = 0; i < slen; i++) {
-            arr[s.charAt(i) - 'a']++;
+        for (char ch : s.toCharArray()) {
+            count[ch - 'a']++;
         }
 
-        for (int i = 0; i < tlen; i++) {
-            arr[t.charAt(i) - 'a']--;
+        for (char ch : t.toCharArray()) {
+            count[ch - 'a']--;
+        }
 
-            if (arr[t.charAt(i) - 'a'] < 0) {
+        for (int freq : count) {
+            if (freq > 0) {
                 return false;
             }
         }
-
         return true;
     }
 }
