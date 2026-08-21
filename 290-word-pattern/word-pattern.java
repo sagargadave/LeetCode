@@ -1,27 +1,25 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        String[] words = s.split(" ");
 
-        if (pattern.length() != words.length) {
+        String arr[] = s.split(" ");
+        HashMap<Character, String> mp = new HashMap<>();
+
+        if (arr.length != pattern.length()) {
             return false;
         }
 
-        HashMap<Character, String> charToWord = new HashMap<>();
+        int i = 0;
 
-        for (int i = 0; i < pattern.length(); i++) {
-            char c = pattern.charAt(i);
-            String w = words[i];
-
-            if (charToWord.containsKey(c)) {
-                if (!charToWord.get(c).equals(w)) {
+        for (char ch : pattern.toCharArray()) {
+            if (mp.containsKey(ch)) {
+                if (!mp.get(ch).equals(arr[i])) {
                     return false;
                 }
-            } else {
-                if (charToWord.containsValue(w)) {
-                    return false;
-                }
-                charToWord.put(c, w);
+            } else if (mp.containsValue(arr[i])) {
+                return false;
             }
+
+            mp.put(ch, arr[i++]);
         }
 
         return true;
