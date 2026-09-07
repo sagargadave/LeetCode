@@ -2,7 +2,6 @@ class Solution {
     public List<Integer> luckyNumbers(int[][] matrix) {
 
         ArrayList<Integer> minList = new ArrayList<>();
-        ArrayList<Integer> maxList = new ArrayList<>();
         ArrayList<Integer> result = new ArrayList<>();
 
         int col = matrix.length, row = matrix[0].length;
@@ -28,12 +27,8 @@ class Solution {
                 }
             }
 
-            maxList.add(max);
-        }
-
-        for (int i = 0; i < minList.size(); i++) {
-            if (maxList.contains(minList.get(i))) {
-                result.add(minList.get(i));
+            if (minList.contains(max)) {
+                result.add(max);
             }
         }
 
